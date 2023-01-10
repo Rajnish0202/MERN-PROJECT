@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "name": "react-online",
+  "builds": [{ "src": "backend/server.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/backend/server.js" }]
+}
