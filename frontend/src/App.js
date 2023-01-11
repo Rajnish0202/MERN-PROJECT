@@ -15,10 +15,10 @@ import ProductDetails from './component/Product/ProductDetails.js';
 import Products from './component/Product/Products.js';
 import Search from './component/Product/Search.js';
 import LoginSignUp from './component/User/LoginSignUp';
-import store from './store/store';
+// import store from './store/store';
 import { loadUser } from './actions/userAction';
 import UserOptions from './component/layout/Header/UserOptions.js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Profile from './component/User/Profile.js';
@@ -46,6 +46,7 @@ import NotFound from './component/layout/Not Found/NotFound';
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [stripeApiKey, setStripeApiKey] = useState('');
 
   async function getStripeApiKey() {
@@ -59,10 +60,10 @@ function App() {
         families: ['Roboto', 'Droid Sans', 'Chilanka'],
       },
     });
-    store.dispatch(loadUser());
+    dispatch(loadUser());
 
     getStripeApiKey();
-  }, []);
+  }, [dispatch]);
 
   // window.addEventListener('contextmenu', (e) => e.preventDefault());
 
