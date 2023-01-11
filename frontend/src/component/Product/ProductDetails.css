@@ -201,6 +201,10 @@
   color: rgba(0, 0, 0, 0.548);
 }
 
+.MuiRating-root {
+  color: #eb4034 !important;
+}
+
 @media screen and (max-width: 600px) {
   .productDetails {
     flex-direction: column;

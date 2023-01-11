@@ -20,7 +20,7 @@ import {
   DialogTitle,
   Button,
 } from '@material-ui/core';
-import { Rating } from '@material-ui/lab';
+import { Rating } from '@mui/material';
 import { NEW_REVIEW_RESET } from '../../constants/productConstants';
 
 const ProductDetails = () => {

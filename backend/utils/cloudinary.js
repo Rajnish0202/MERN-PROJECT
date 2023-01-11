@@ -1,7 +1,7 @@
 const cloudinary = require('cloudinary').v2;
 
 if (process.env.NODE_ENV !== 'PRODUCTION') {
-  require('dotenv').config({ path: 'backend/config/config.env' });
+  require('dotenv').config({ path: 'config/config.env' });
 }
 
 cloudinary.config({
