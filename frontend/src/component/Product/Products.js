@@ -19,11 +19,16 @@ const Products = () => {
   const [ratings, setRatings] = useState(0);
 
   const dispatch = useDispatch();
-  const { products, productsCount, resultPerPage, filteredProductsCount, loading, error } = useSelector(
-    (state) => state.products
-  );
+  const {
+    products,
+    productsCount,
+    resultPerPage,
+    // filteredProductsCount,
+    loading,
+    error,
+  } = useSelector((state) => state.products);
   const alert = useAlert();
-  const { keyword } = useParams();
+  const keyword = useParams();
 
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
@@ -52,7 +57,10 @@ const Products = () => {
           <MetaData title='PRODUCTS -- ECOMMERCE' />
           <h2 className='productHeading'>Products</h2>
           <div className='products'>
-            {products && products.map((product) => <ProductCard product={product} key={product._id} />)}
+            {products &&
+              products.map((product) => (
+                <ProductCard product={product} key={product._id} />
+              ))}
           </div>
 
           <div className='filterBox'>

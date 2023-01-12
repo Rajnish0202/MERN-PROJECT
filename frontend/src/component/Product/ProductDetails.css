@@ -103,6 +103,9 @@
 .detailsBlock-3-1 > button:last-child:hover {
   background: rgba(214, 84, 61);
 }
+/* .detailsBlock-3-1 > button:last-child:disabled {
+  cursor: not-allowed;
+} */
 
 .detailsBlock-3 > p {
   border-top: 1px solid rgba(0, 0, 0, 0.205);
@@ -199,10 +202,6 @@
   font: 400 1.3vmax 'Gill Sans';
   text-align: center;
   color: rgba(0, 0, 0, 0.548);
-}
-
-.MuiRating-root {
-  color: #eb4034 !important;
 }
 
 @media screen and (max-width: 600px) {
