@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const path = require('path');
+const cors = require('cors');
 
 if (process.env.NODE_ENV !== 'PRODUCTION') {
   require('dotenv').config({ path: 'config/config.env' });
@@ -23,6 +24,12 @@ app.use(
 );
 app.use(cookieParser());
 app.use(fileUpload());
+app.use(
+  cors({
+    origin: ['http://localhost:3000', 'https://mern-online.onrender.com'],
+    credentials: true,
+  })
+);
 
 // Routes Imports
 const product = require('./routes/productRoute');
@@ -41,9 +48,9 @@ app.use('/api/v1', payment);
 //   res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
 // });
 
-app.get("*" , (req,res) => {
-res.send("Home Page");
-})
+app.get('/', (req, res) => {
+  res.send('Home Page');
+});
 
 // Middleware for error
 app.use(errorMiddleware);

@@ -4,10 +4,11 @@ import {
   SAVE_SHIPPING_INFO,
 } from '../constants/cartConstants';
 import axios from 'axios';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 // ADD TO CART
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/v1/product/${id}`);
+  const { data } = await axios.get(`${BACKEND_URL}/api/v1/product/${id}`);
 
   dispatch({
     type: ADD_TO_CART,

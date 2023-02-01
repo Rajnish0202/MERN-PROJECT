@@ -21,6 +21,8 @@ import { useNavigate } from 'react-router-dom';
 import { clearErrors, createOrder } from '../../actions/orderAction';
 
 const Payment = () => {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
   const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'));
 
   const dispatch = useDispatch();
@@ -59,7 +61,7 @@ const Payment = () => {
       };
 
       const { data } = await axios.post(
-        '/api/v1/payment/process',
+        `${BACKEND_URL}/api/v1/payment/process`,
         paymentData,
         config
       );
